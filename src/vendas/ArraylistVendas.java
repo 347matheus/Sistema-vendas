@@ -124,4 +124,40 @@ public class ArraylistVendas {
 		}
 
 	}
+	
+	public static void adicionarItem(ArrayList<String> produtos, ArrayList<Double> precos, ArrayList<Integer> estoque, Scanner sc) {
+		System.out.print("\nDigite o nome do produto: ");
+		String product = sc.nextLine();
+
+		System.out.print("Insira o valor do item: ");
+		double price = sc.nextDouble();
+		sc.nextLine();
+
+		System.out.print("Insira a quantidade do item em estoque: ");
+		int manage = sc.nextInt();
+		sc.nextLine();
+
+		produtos.add(product);
+		precos.add(price);
+		estoque.add(manage);
+		System.out.println("\nProduto cadastrado!");
+	}
+	
+	public static void venderItem(ArrayList<String> produtos, ArrayList<Double> precos, ArrayList<Integer> estoque, ArrayList<Integer> histven, Scanner sc) {
+		System.out.println("\nProdutos disponíveis:\n");
+		for (int i = 0; i < produtos.size(); i++) {
+			System.out.print("Item: " + i + ". " + produtos.get(i));
+			System.out.printf("\nR$%.2f", precos.get(i));
+			System.out.print("\nQuantidade disponível: " + estoque.get(i));
+			System.out.println("\n");
+		}
+	}
+	
+	public static void mostrarRelatorio(ArrayList<String> produtos, ArrayList<Double> precos, ArrayList<Integer> histven, double faturamento) {
+		System.out.println("Histórico de vendas:\n");
+		System.out.println("Produtos vendidos: " + produtos);
+		System.out.print("Unidades vendidas: " + histven);
+		System.out.println("\nvalor unitário " + precos);
+		System.out.printf("Faturamento total: R$%.2f\n", faturamento);
+	}
 }
