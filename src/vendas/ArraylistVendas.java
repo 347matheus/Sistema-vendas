@@ -86,12 +86,37 @@ public class ArraylistVendas {
 	public static void consultarItem(ArrayList<String> produtos, ArrayList<Double> precos, ArrayList<Integer> estoque, ArrayList<Integer> histven) {
 		System.out.println("\nProdutos disponíveis:\n");
 		
+		double maior = 0, menor = 0;
+		int prodmaior = 0, prodmenor = 0;
+		
 		for (int i = 0; i < produtos.size(); i++) {
+
+			if(precos.get(i) == 0) {
+				maior = precos.get(0);
+				menor = precos.get(0);
+			}
+			else {
+				if(precos.get(i) > maior) {
+					maior = precos.get(i);
+					prodmaior = i;
+
+				}
+				if(precos.get(i) < menor) {
+					menor = precos.get(i);
+					prodmenor = i;
+				}
+				
+			}
+			
 			System.out.print("Item: " + i + ". " + produtos.get(i)); //imprime o código do item que é a posição no loop e o nome do produto conforme loop
 			System.out.printf("\nR$%.2f", precos.get(i));            //preço conforme loop
 			System.out.print("\nQuantidade disponível: " + estoque.get(i)); //quantidade conforme loop
 			System.out.println("\n");
 		}
+		
+		System.out.println("Produto de maior valor: "+ maior + produtos.get(prodmaior));
+		System.out.println("Produto de menor valor: "+ menor + produtos.get(prodmenor));
+		
 
 	}
 
@@ -139,7 +164,7 @@ public class ArraylistVendas {
 		System.out.println("\nvalor unitário " + precos);     //imprime o arraylist dos preços
 		
 		for (Double valorvendido : fat) {  //percorre o array FAT, valorvendido recebe os valores de fat até o final do laço		                               
-          	faturamento += valorvendido;   ////Isso continua até que todos os elementos de fat tenham sido percorridos.
+          	faturamento += valorvendido;   //Isso continua até que todos os elementos de fat tenham sido percorridos.
 		}
 		
 		System.out.printf("Faturamento total: R$%.2f\n", faturamento); //imprime o faturamento final
