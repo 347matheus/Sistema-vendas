@@ -1,0 +1,20 @@
+{
+  "game": {
+    "name": "MeuJogo",
+    "version": "1.0",
+    "rptTarget": 0.95,
+    "maxWinMultiplier": 1000,
+    "symbols": ["A", "K", "Q", "J", "10", "Wild"],
+    "reels": [
+      ["A","K","Q","J","10","Wild", ...],
+      ["A","K","Q","J","10","Wild", ...],
+      ["A","K","Q","J","10","Wild", ...]
+    ],
+    "paytable": {
+      "A": { "3": 5, "4": 20, "5": 100 },
+      "K": { "3": 4, "4": 15, "5": 80 },
+      // etc
+    }
+  }
+}
+
